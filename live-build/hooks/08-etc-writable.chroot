@@ -13,6 +13,10 @@ for f in timezone localtime hostname; do
     ln -s /etc/writable/$f /etc/$f
 done
 
+# make /etc/defaults/crda writable
+touch /etc/default/crda
+ln -s /etc/default/crda /etc/writable/crda
+
 # create systemd override dirs
 for f in system user; do
     echo "I: creating /etc/systemd/$f.conf.d"
