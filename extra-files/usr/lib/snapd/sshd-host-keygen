@@ -42,11 +42,8 @@ create_key() {
 		printf "%s" "$msg"
 		ssh-keygen -q -f "$file" -N '' "$@"
 		echo
-		if which restorecon >/dev/null 2>&1; then
-			restorecon "$file" "$file.pub"
-		fi
 		ssh-keygen -l -f "$file.pub"
-                sync
+		sync
 	fi
 }
 
